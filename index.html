@@ -396,11 +396,11 @@ em,.it{font-style:italic;text-transform:none;letter-spacing:0}
   .guess-txt .btn{width:100%}
 
   .trt-top{margin-bottom:48px}
-  .cards{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;gap:12px;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+  .cards{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;gap:12px;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;margin-inline:calc(-1 * max(var(--gut),env(safe-area-inset-left,0px)));padding-inline:max(var(--gut),env(safe-area-inset-left,0px));scroll-padding-inline:max(var(--gut),env(safe-area-inset-left,0px))}
   .anim .cards .card.fade{transform:none}
   .guess-txt p,.hi-text p{text-wrap:pretty}
   .cards::-webkit-scrollbar{display:none}
-  .card{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always}
+  .card{flex:0 0 78%;scroll-snap-align:start;scroll-snap-stop:always}
   .card-img::before,.card-img p{opacity:1;transform:none}
   .trt-foot{flex-direction:column;align-items:flex-start}
   .trt-foot .btn{width:100%}
