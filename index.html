@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Clínica de Estética Avançada Dra. Raiane Furquim, harmonização facial e perfiloplastia em Guarapuava, PR.">
 <title>Dra. Raiane Furquim</title>
+<link rel="icon" type="image/png" href="assets/v5/favicon.png">
+<link rel="apple-touch-icon" href="assets/v5/apple-touch-icon.png">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -394,9 +396,11 @@ em,.it{font-style:italic;text-transform:none;letter-spacing:0}
   .guess-txt .btn{width:100%}
 
   .trt-top{margin-bottom:48px}
-  .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-right:calc(-1 * var(--gut));padding-right:var(--gut);scrollbar-width:none}
+  .cards{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;gap:12px;scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+  .anim .cards .card.fade{transform:none}
+  .guess-txt p,.hi-text p{text-wrap:pretty}
   .cards::-webkit-scrollbar{display:none}
-  .card{flex:0 0 72%;scroll-snap-align:start}
+  .card{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always}
   .card-img::before,.card-img p{opacity:1;transform:none}
   .trt-foot{flex-direction:column;align-items:flex-start}
   .trt-foot .btn{width:100%}
@@ -415,7 +419,7 @@ em,.it{font-style:italic;text-transform:none;letter-spacing:0}
   .tst .btn{width:100%}
 
   .how{min-height:0;padding-block:var(--pad)}
-  .how-tag{position:static;margin-top:32px;display:block}
+  .how-tag{display:none}
 
   .faq .grid{display:block}
   .faq-side{position:static;margin-bottom:48px}
@@ -429,9 +433,10 @@ em,.it{font-style:italic;text-transform:none;letter-spacing:0}
   .foot-imgs{grid-template-columns:repeat(3,1fr);gap:8px}
   .foot-nav{gap:16px 24px;justify-content:flex-start}
   .foot-info{grid-template-columns:1fr;gap:32px}
-  .foot-info a.map,.foot-info .hours{justify-self:start}
-  .foot-info .hours{text-align:left}
+  .foot-info a.map{justify-self:start}
+  .foot-info .hours{justify-self:stretch;width:100%;grid-template-columns:1fr auto;row-gap:4px;text-align:left}
   .foot-info .hours span:nth-child(odd){text-align:left}
+  .foot-info .hours span:nth-child(even){text-align:right}
 
   .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:44;gap:10px;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(14,14,13,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line-d);transform:translateY(110%);transition:transform .6s var(--ease)}
   .mbar.on{transform:none}
@@ -545,7 +550,7 @@ em,.it{font-style:italic;text-transform:none;letter-spacing:0}
       <span class="label">Talvez você se identifique</span>
       <h2 class="lines"><span class="ln"><span>Há quanto tempo</span></span><span class="ln"><span>você foge das fotos</span></span><span class="ln"><span>que mostram o</span></span><span class="ln"><span>seu perfil?</span></span></h2>
       <span class="it fade">Muitas vezes, o que incomoda não é exatamente a região que precisa ser tratada.</span>
-      <p class="muted fade">Por isso tudo começa com uma avaliação do rosto como um todo. Nariz, lábios e queixo conversando entre si, para um resultado que respeita quem você é.</p>
+      <p class="muted fade">Por isso tudo começa com uma avaliação do rosto como um todo. Nariz, lábios e queixo conversando entre si, para um resultado que respeita quem você&nbsp;é.</p>
       <a class="btn ghost fade" href="https://wa.link/4jri58" target="_blank" rel="noopener">Quero minha avaliação <span class="ar"></span></a>
     </div>
   </div>
