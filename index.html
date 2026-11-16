@@ -185,9 +185,7 @@ em,.it{font-style:italic;text-transform:none;letter-spacing:0}
 .trt-foot .note{font-size:12px;color:var(--stone)}
 
 /* ---------- 6. resultados (como "the gallery": foto escura de fundo e setas) ---------- */
-.res{overflow:hidden}
-.res .bg{--dim:.78}
-.res .bg img{filter:blur(2px)}
+.res{overflow:hidden;background:#29241F}
 .res .wrap{position:relative;z-index:2}
 .res-top{display:flex;align-items:center;justify-content:center;gap:clamp(20px,4vw,56px);margin-bottom:56px}
 .res-top h2{font-size:clamp(48px,5.6vw,90px)}
@@ -200,8 +198,7 @@ em,.it{font-style:italic;text-transform:none;letter-spacing:0}
 .arr-c.prev:hover{transform:translateX(-4px)}
 .arr-c.next:hover{transform:translateX(4px)}
 .ba{position:relative;flex:0 1 auto;background:#000;overflow:hidden;user-select:none;-webkit-user-select:none;touch-action:pan-y;cursor:ew-resize;--p:50%;transition:opacity .35s var(--ease)}
-.ba.portrait{aspect-ratio:3/4;width:min(560px,100%)}
-.ba.land{aspect-ratio:2/1;width:min(980px,100%)}
+.ba{aspect-ratio:1/1;width:min(620px,100%)}
 .ba::after{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.12;mix-blend-mode:overlay;pointer-events:none}
 .ba-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%;pointer-events:none}
 .ba.land .ba-img{object-position:50% 50%}
@@ -411,9 +408,7 @@ em,.it{font-style:italic;text-transform:none;letter-spacing:0}
   .trt-foot .btn{width:100%}
 
   .ba-stage{display:block;position:relative}
-  .ba.portrait,.ba.land{width:100%}
-  .ba.portrait{aspect-ratio:4/5}
-  .ba.land{aspect-ratio:4/3}
+  .ba{width:100%;aspect-ratio:4/5}
   .arr-c{position:absolute;top:50%;z-index:4;width:44px;height:44px;margin-top:-22px;background:rgba(14,14,13,.45)}
   .arr-c svg{width:18px;height:18px}
   .arr-c.prev{left:10px}
@@ -597,7 +592,6 @@ em,.it{font-style:italic;text-transform:none;letter-spacing:0}
 
 <!-- 6. RESULTADOS -->
 <section class="sec res" id="resultados">
-  <div class="bg"><div class="par" data-par=".12"><img src="assets/ed/recepcao.jpg" alt="" loading="lazy" decoding="async" width="360" height="220"></div></div>
   <div class="wrap">
     <div class="res-top">
       <h2 class="lines"><span class="ln"><span>Os <em>Resultados</em></span></span></h2>
