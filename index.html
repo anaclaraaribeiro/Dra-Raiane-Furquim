@@ -833,19 +833,34 @@ em,.it{font-style:italic;text-transform:none;letter-spacing:0}
     const step = e.shiftKey ? 10 : 2, k = { ArrowLeft: pos - step, ArrowRight: pos + step, Home: 0, End: 100 }[e.key];
     if (k !== undefined) { setPos(k); e.preventDefault(); }
   });
+  // Pré-carrega as fotos dos casos; a troca só acontece com antes e depois prontos
+  const cache = {};
+  const load = src => cache[src] || (cache[src] = new Promise(res => {
+    const im = new Image();
+    im.onload = () => Promise.race([im.decode ? im.decode().catch(() => {}) : null, new Promise(r => setTimeout(r, 400))]).then(res);
+    im.onerror = res;
+    im.src = src;
+  }));
+  const preload = () => cases.forEach(c => { load(c.a); load(c.d); });
+  if ('IntersectionObserver' in window) {
+    const pio = new IntersectionObserver(es => { if (es[0].isIntersecting) { preload(); pio.disconnect(); } }, { rootMargin: '900px 0px' });
+    pio.observe(ba);
+  }
+  addEventListener('load', () => setTimeout(preload, 1200));
+  let token = 0;
   const go = i => {
     ci = (i + cases.length) % cases.length;
-    const c = cases[ci];
+    const c = cases[ci], t = ++token;
     ba.style.opacity = 0;
-    setTimeout(() => {
+    Promise.all([load(c.a), load(c.d), new Promise(r => setTimeout(r, anim ? 350 : 0))]).then(() => {
+      if (t !== token) return;
       after.src = c.d; before.src = c.a;
       ba.classList.toggle('land', !!c.wide); ba.classList.toggle('portrait', !c.wide);
       after.alt = 'Depois: ' + c.n; before.alt = 'Antes: ' + c.n;
       caseEl.textContent = c.n; countEl.innerHTML = `<b>${String(ci + 1).padStart(2, '0')}</b> / ${String(cases.length).padStart(2, '0')}`;
       setPos(50);
-      const show = () => { ba.style.opacity = 1; };
-      after.decode ? after.decode().then(show, show) : show();
-    }, anim ? 350 : 0);
+      setTimeout(() => { ba.style.opacity = 1; }, 40);
+    });
   };
   document.getElementById('casePrev').addEventListener('click', () => go(ci - 1));
   document.getElementById('caseNext').addEventListener('click', () => go(ci + 1));
